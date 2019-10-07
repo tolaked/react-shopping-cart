@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Route } from "react-router-dom";
-import data from "./data";
 
 // Components
 import Navigation from "./components/Navigation";
@@ -13,16 +12,10 @@ function App() {
   return (
     <appContext.Provider value={useAppState()}>
       <div className="App">
-        <Navigation cart={cart} />
-
+        <Navigation />
         {/* Routes */}
-        <Route
-          exact
-          path="/"
-          render={() => <Products products={products} addItem={addItem} />}
-        />
-
-        <Route path="/cart" render={() => <ShoppingCart cart={cart} />} />
+        <Route exact path="/" component={Products} />} />
+        <Route path="/cart" component={ShoppingCart} />
       </div>
     </appContext.Provider>
   );
